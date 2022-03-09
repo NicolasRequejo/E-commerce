@@ -11,7 +11,6 @@ function App() {
       {"Navbar"}
       {/* <Grid /> EL grid queda aca de prueba hasta que este el home component */}
       {"Footer re cheto"}
-      </div>
     </div>
   );
 }
