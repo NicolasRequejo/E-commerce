@@ -51,10 +51,11 @@ router.post("/productos/:id/stock", async (req, res) => {
       },
     });
     if (created) {
-      console.log(producto)
       res.send("inventario creado");
     } else {
-      console.log(producto)
+
+    
+
       producto.stock = req.body.stock;
       producto.save();
       res.send("stock modificado");
@@ -101,5 +102,26 @@ router.get("/productos/:id/stock", async (req, res) => {
     res.send(error);
   }
 });
+
+
+
+router.delete("/productos/:id", async (req, res) => {
+  try {
+    const productos = await Productos.destroy({where:{id:req.params.id}},{
+      include: [
+        {
+          model: Inventario,
+        },
+      ],
+    });
+   res.send("borrado")
+  } 
+  catch (error) {
+    res.send(error);
+  }
+});
+
+
+
 
 module.exports = router;
