@@ -53,6 +53,9 @@ router.post("/productos/:id/stock", async (req, res) => {
     if (created) {
       res.send("inventario creado");
     } else {
+
+    
+
       producto.stock = req.body.stock;
       producto.save();
       res.send("stock modificado");
@@ -99,6 +102,7 @@ router.get("/productos/:id/stock", async (req, res) => {
     res.send(error);
   }
 });
+
 
 
 router.delete("/productos/:id", async (req, res) => {
